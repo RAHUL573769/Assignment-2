@@ -25,6 +25,8 @@ const getAllUserService = async () => {
   const result = await User.aggregate([
     {
       $project: {
+        _id: 0,
+        userId: 1,
         username: 1,
         fullName: 1,
         age: 1,
@@ -48,6 +50,8 @@ const getUserService = async (userId: number) => {
       { $match: { userId: userId } },
       {
         $project: {
+          _id: 0,
+
           userId: 1,
           username: 1,
           fullName: 1,
